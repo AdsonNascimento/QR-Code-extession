@@ -1,0 +1,17 @@
+{
+    "manifest_version": 3,
+    "name": "qr code generator",
+    "description": "With this extension it is possible to create qr code in a simple and free way.",
+    "author": "Adson Nael",
+    "version": "0.0.1",
+    "icons": {
+        "16": "./public/icon/icon-16.png",
+        "32": "./public/icon/icon-32.png",
+        "48": "./public/icon/icon-48.png",
+        "128": "./public/icon/icon-128.png"
+    },
+    "action": {
+        "default_popup": "./index.html",
+        "default_icon": "./public/icon/icon-128.png"
+    }
+}
