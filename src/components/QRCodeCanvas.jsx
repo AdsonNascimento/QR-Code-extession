@@ -5,8 +5,8 @@ export default function QRCodeCanvas({ urlLink }) {
     const canvasRef = useRef()
 
     useEffect(() => {
-        QRCode.toCanvas(canvasRef.current, urlLink, { width: 177 }, (error) => {
-            if(error == Error) {
+        QRCode.toCanvas(canvasRef.current, urlLink, { width: 177, margin: 1 }, (error) => {
+            if (error == Error) {
                 console.log(error)
             }
         })
