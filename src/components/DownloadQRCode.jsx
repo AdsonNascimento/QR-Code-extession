@@ -27,9 +27,8 @@ export default function DownloadQRCode({ urlLink, sizeQrCode }) {
 
   return (
     <>
-      <button id="submit" onClick={download} type="submit">download</button>
+      <button className="w-full h-12 rounded-xl p-7 bg-white font-bold text-xl flex justify-center items-center" id="submit" onClick={download} type="submit">download</button>
       <canvas ref={canvasRef} id="dowloadCanvas" style={{ width: `${sizeQrCode}px`, height: `${sizeQrCode}px`, display: "none" }}></canvas>
-
     </>
   )
 }
