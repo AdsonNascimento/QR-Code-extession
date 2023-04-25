@@ -4,6 +4,10 @@ import QRCode from "qrcode"
 export default function DownloadQRCode({ urlLink, sizeQrCode }) {
   const canvasRef = useRef()
 
+  if (!urlLink) {
+    urlLink = "Hello world!"
+  }
+
   useEffect(() => {
     QRCode.toCanvas(canvasRef.current, urlLink, { width: `${sizeQrCode}`, margin: 1 }, (error) => {
       if (error == Error) {
