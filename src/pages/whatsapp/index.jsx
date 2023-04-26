@@ -7,10 +7,18 @@ export default function WhatsAppPage() {
 
   const handleSubmit = (event) => {
     event.preventDefault()
+    setMesage('')
   }
 
   const handleNumber = (event) => {
-    setNumber(event.target.value);
+    const onlyNumbers = event.target.value.replace(/[^0-9]/g, '');
+    const key = event.keyCode || event.charCode;
+
+    if (onlyNumbers === event.target.value || key === 8 || key === 8) {
+      setNumber(onlyNumbers);
+    } else {
+      alert('Enter only numbers!');
+    }
   }
 
   const handleMensage = (event) => {
@@ -21,7 +29,7 @@ export default function WhatsAppPage() {
     <main className='w-full default-flex items-center gap-8'>
       <form className='w-full' onSubmit={handleSubmit}>
 
-        <label className='w-full' htmlFor="number">Write the number:</label><br />
+        <label className='w-full' htmlFor="number">Phone number:</label><br />
         <input
           className='w-full h-12 rounded-xl p-4 mb-9'
           value={number}
@@ -30,8 +38,9 @@ export default function WhatsAppPage() {
           name="number"
           type="tel"
           autoComplete='off'
-          placeholder="DDDNUMBER"
-          maxLength="11"
+          maxLength="15"
+          placeholder="Only numbers"
+          required
         />
 
         <label className='w-full' htmlFor="mensage">Write the text:</label><br />
@@ -41,10 +50,12 @@ export default function WhatsAppPage() {
           onChange={handleMensage}
           name="mensage"
           id="mensage"
-          rows="3">
+          rows="3"
+          maxLength="900"
+          required>
         </textarea>
 
-        <LinkWhatsApp number={number} mensage={mensage} />
+        <LinkWhatsApp telNumber={number} mensage={mensage} />
       </form>
     </main>
   )

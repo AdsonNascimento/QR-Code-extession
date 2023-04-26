@@ -28,7 +28,7 @@ export default function Home() {
         <input className='w-full h-12 rounded-xl p-4 mb-9' id="url-link" name="url-link" type="text" value={urlLink} onChange={handleUrlLink} autoComplete='off' placeholder="Hello world!" />
 
         <div className="qrcode-size flex justify-between">
-          <label htmlFor="size">size of qrcode:</label>
+          <label htmlFor="size">Size of qrcode:</label>
           <select className='w-48 h-12 rounded-xl p-3 pl-6 mb-8 text-xl font-medium' id="size" name="size" list="sizes" required="required" onChange={updateSize}>
             <option value="200">200px</option>
             <option value="500">500px</option>
