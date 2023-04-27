@@ -1,7 +1,7 @@
 import { Check } from "@phosphor-icons/react";
 import { useState } from "react";
 
-export default function LinkWhatsApp({ telNumber, mensage }) {
+export default function LinkWhatsApp({ country, telNumber, mensage }) {
 
   function htmlDecode(text) {
     var doc = new DOMParser().parseFromString(text, "text/html");
@@ -25,38 +25,27 @@ export default function LinkWhatsApp({ telNumber, mensage }) {
     document.body.removeChild(textarea);
   }
 
-  const [btn, setBtn] = useState([
-    <span>copy mensage</span>
-  ])
+  const [btn, setBtn] = useState('copy mensage')
 
-  // function alterBtn() {
-  //   const stateBtn = true;
+  function ok() {
+    setBtn([
+      <Check size={16} color="#000" />,
+      <span>copyed!</span>
+    ])
 
-  //   !stateBtn
-
-  //   setTimeout(() => {
-  //     if (stateBtn) {
-  //       setBtn([
-  //         <span>copy mensage</span>
-  //       ])
-  //     } else {
-  //       !stateBtn
-
-  //       setBtn([
-  //         <Check size={16} color="#000" />,
-  //         <span>copyed!</span>
-  //       ])
-  //     }
-  //   }, 1000)
-  // }
-  
+    setTimeout(() => {
+      setBtn('copy mensage')
+    }, 1250)
+  }
 
   function handleLink() {
     const formattedMensage = htmlDecode(mensage).trim().replace(/\s/g, '+');
-    const url = `https://api.whatsapp.com/send/?phone=${telNumber}&text=${formattedMensage}&app_absent=0`;
-    copyToClipboard(url)
+    const url = `https://api.whatsapp.com/send/?phone=${country}${telNumber}&text=${formattedMensage}&app_absent=0`;
 
-    // alterBtn()
+    if (telNumber, mensage) {
+      copyToClipboard(url)
+      ok()
+    }
   }
 
   return (
