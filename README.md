@@ -31,7 +31,7 @@ yarn add -D tailwindcss
 # Adicione o pacode que gera o canva do QrCode
 yarn add qrcode
 
-# Dnstala o node e demais dependências
+# Instala o node e demais dependências
 yarn
 
 # Cria servidor de desenvolvimento
